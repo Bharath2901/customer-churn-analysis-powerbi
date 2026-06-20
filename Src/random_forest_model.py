@@ -1,4 +1,7 @@
+import os
+
 import pandas as pd
+import joblib
 
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
@@ -54,6 +57,12 @@ model = RandomForestClassifier(
 )
 
 model.fit(X_train, y_train)
+
+# Save trained models
+joblib.dump(model, "../models/churn_model.pkl")
+
+print("Current directory:", os.getcwd())
+print("Model exists:", os.path.exists("models/churn_model.pkl"))
 
 predictions = model.predict(X_test)
 

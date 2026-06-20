@@ -35,7 +35,7 @@ df = pd.get_dummies(
 X = df.drop("Churn", axis=1)
 y = df["Churn"]
 
-# Train model
+# Train models
 model = RandomForestClassifier(
     random_state=42
 )
